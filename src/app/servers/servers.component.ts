@@ -10,6 +10,9 @@ export class ServersComponent {
   serverCreationStatus = 'No server was created';
   serverName = 'dupa testowa';
   serverCreated = false;
+  servers = ['testserver', 'testserver2'];
+  showHide: boolean;
+  tablica = [];
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
@@ -18,10 +21,16 @@ export class ServersComponent {
 
   onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created. Name is ' + this.serverName;
   }
 
   onUpdateServer(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  showOrHide() {
+    this.tablica.push(new Date())
+    return this.showHide = !this.showHide;
   }
 }

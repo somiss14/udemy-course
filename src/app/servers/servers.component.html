@@ -5,5 +5,13 @@
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add server</button>
 <!--<p>{{serverCreationStatus}}</p>-->
 <p *ngIf="serverCreated">Server was created, server is {{serverName}}</p>
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
+
+<hr>
+<hr>
+<hr>
+
+<button (click)="showOrHide()">Display Details</button>
+<p *ngIf="showHide">aaa</p>
+
+<div [ngClass]="{color: tablica.indexOf(element)>= 4}" [ngStyle]="{backgroundColor: tablica.indexOf(element) >=4 ? 'blue': 'none'}" *ngFor="let element of tablica">{{element}}</div>
